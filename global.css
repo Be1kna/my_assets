@@ -1,0 +1,252 @@
+/* Shared portfolio styles: ProjectsHub layout/colors + Applab/CMU card and controls */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #111;
+  --muted: #666;
+  --accent1: linear-gradient(135deg, #667eea, #764ba2);
+  --header-text: #ffffff;
+}
+
+[data-theme="dark"] {
+  --primary-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  --bg: #0f1220;
+  --card: #2d2d3a;
+  --text: #eef2ff;
+  --muted: #c9c9d3;
+  --header-text: #e0e0e0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--primary-gradient);
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 28px auto;
+  padding: 18px;
+}
+
+.site-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin-bottom: 24px;
+  color: var(--header-text);
+  gap: 12px;
+}
+
+.title {
+  text-align: center;
+}
+
+.site-header .title h1 {
+  margin: 0;
+  font-size: 1.65rem;
+}
+
+.subtitle {
+  color: var(--header-text);
+  opacity: 0.9;
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.actions {
+  justify-self: end;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.project-card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid rgba(16, 24, 40, 0.04);
+  box-shadow: 0 12px 36px rgba(5, 10, 25, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 240px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(5, 10, 25, 0.2);
+}
+
+.project-icon {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.project-title {
+  margin: 0 0 8px 0;
+  color: var(--text);
+}
+
+.project-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-bottom: 10px;
+}
+
+.project-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.tag {
+  background: var(--accent1);
+  color: #fff;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.card-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.launch-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.96rem;
+  font-weight: 600;
+  box-shadow: 0 8px 18px rgba(102, 126, 234, 0.18);
+}
+
+.open-link,
+.code-btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: var(--text);
+  background: transparent;
+  font-size: 0.93rem;
+}
+
+.code-btn {
+  cursor: pointer;
+}
+
+.code-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Bigger controls than Applab/CMU originals */
+.theme-toggle,
+.back-to-menu-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(102, 126, 234, 0.22);
+  transition: transform 0.18s ease, background 0.18s ease;
+  color: var(--header-text);
+  text-decoration: none;
+}
+
+.theme-toggle {
+  width: 56px;
+  height: 56px;
+  font-size: 1.2rem;
+}
+
+.theme-toggle:hover,
+.back-to-menu-btn:hover {
+  transform: scale(1.06);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.back-to-menu-btn {
+  justify-self: start;
+  margin-right: 0;
+  padding: 0 18px;
+  min-height: 50px;
+  line-height: 1;
+  font-size: 0.97rem;
+  font-weight: 700;
+}
+
+.site-footer {
+  margin-top: 28px;
+  color: var(--header-text);
+  opacity: 0.85;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 14px;
+  }
+
+  .site-header {
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+  }
+
+  .title {
+    min-width: 0;
+  }
+
+  .site-header .title h1 {
+    font-size: 1.45rem;
+  }
+
+  .theme-toggle {
+    width: 52px;
+    height: 52px;
+  }
+
+  .back-to-menu-btn {
+    min-height: 48px;
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+  }
+}
